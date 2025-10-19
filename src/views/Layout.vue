@@ -6,7 +6,6 @@
         <feb-alive>
           <router-view></router-view>
         </feb-alive>
-        <Footer></Footer>
       </div>
     </section>
     <APlayer />
@@ -15,7 +14,6 @@
 
 <script>
 import Head from "./common/Head";
-import Footer from "./common/Footer";
 import APlayer from "./common/APlayer";
 export default {
   data: function () {
@@ -23,7 +21,6 @@ export default {
   },
   components: {
     Head,
-    Footer: Footer,
     APlayer
   },
   methods: {},
