@@ -2,7 +2,7 @@ export default {
   namespaced: true,
   state: {
     // 视图模式
-    mode: "list",
+    mode: "grid",
   },
   actions: {
     /**
@@ -18,7 +18,7 @@ export default {
           {
             dbName: "sys",
             path: "view.mode.value",
-            defaultValue: "list",
+            defaultValue: "grid",
             user: true,
           },
           { root: true }
@@ -37,7 +37,7 @@ export default {
       // eslint-disable-next-line no-async-promise-executor
       return new Promise(async (resolve) => {
         // store 赋值
-        state.mode = mode || "list";
+        state.mode = mode || "grid";
         // 持久化
         await dispatch(
           "acrou/db/set",
