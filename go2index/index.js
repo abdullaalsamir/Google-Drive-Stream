@@ -21,8 +21,8 @@ var  authConfig  =  {
   enable_password_file_verify: false,
 };
 var themeOptions = {
-  cdn: "https://cdn.jsdelivr.net/gh/Aicirou/goindex-theme-acrou",
-  version: "2.0.8",
+  cdn: "https://cdn.jsdelivr.net/gh/abdullaalsamir/Google-Drive-Stream",
+  version: "2.0.9",
   languages: "en",
   render: {
     head_md: false,
