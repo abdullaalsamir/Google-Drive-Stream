@@ -1,8 +1,8 @@
 export default {
   namespaced: true,
   state: {
-    // 视图模式
-    mode: "grid",
+    // Set default view mode to 'grid'
+    mode: "grid", // Change default value to "grid"
   },
   actions: {
     /**
@@ -10,22 +10,25 @@ export default {
      * @param {Object} context
      */
     load({ state, dispatch, commit }) {
-      // eslint-disable-next-line no-async-promise-executor
       return new Promise(async (resolve) => {
-        // store 赋值
-        state.mode = await dispatch(
+        // Fetch stored view mode from persistent storage or use default
+        const savedMode = await dispatch(
           "acrou/db/get",
           {
             dbName: "sys",
             path: "view.mode.value",
-            defaultValue: "grid",
+            defaultValue: "grid",  // Use 'grid' as the default if no saved value is found
             user: true,
           },
           { root: true }
         );
-        // 应用
+        
+        // Update state with the loaded mode
+        state.mode = savedMode;
+        
+        // Apply the mode change
         commit("set", state.mode);
-        // end
+
         resolve();
       });
     },
@@ -34,11 +37,11 @@ export default {
      * @param {Object} context
      */
     toggle({ state, dispatch, commit }, mode) {
-      // eslint-disable-next-line no-async-promise-executor
       return new Promise(async (resolve) => {
-        // store 赋值
+        // If mode is not passed, default to 'grid'
         state.mode = mode || "grid";
-        // 持久化
+
+        // Save the selected mode to persistent storage
         await dispatch(
           "acrou/db/set",
           {
@@ -49,9 +52,10 @@ export default {
           },
           { root: true }
         );
-        // 应用
+        
+        // Apply the mode change
         commit("set", state.mode);
-        // end
+
         resolve();
       });
     },
@@ -60,7 +64,7 @@ export default {
     /**
      * @description 设置 store 里的视图模式
      * @param {Object} state state
-     * @param {Boolean} mode mode
+     * @param {String} mode mode ('list' or 'grid')
      */
     set(state, mode) {
       state.mode = mode;

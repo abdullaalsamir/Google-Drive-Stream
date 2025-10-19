@@ -9,7 +9,7 @@
     <div class="golist" v-loading="loading">
       <list-view
         :data="files"
-        v-if="mode === 'grid'"
+        v-if="mode === 'list'"
         :icons="getIcon"
         :action="action"
         :copy="copy"
