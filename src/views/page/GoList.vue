@@ -77,16 +77,16 @@ import {
 } from "@utils/AcrouUtil";
 import { mapState, mapActions } from "vuex";
 import BreadCrumb from "../common/BreadCrumb";
-import GridView from "./components/grid";
 import ListView from "./components/list";
+import GridView from "./components/grid";
 import Markdown from "../common/Markdown";
 import InfiniteLoading from "vue-infinite-loading";
 export default {
   name: "GoList",
   components: {
     BreadCrumb,
-    GridView,
     ListView,
+    GridView,
     Headmd: Markdown,
     Readmemd: Markdown,
     InfiniteLoading,
