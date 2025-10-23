@@ -1,0 +1,8 @@
+html, body { margin:0; height:100%; background:#000; font-family:system-ui, sans-serif; color:#fff; }
+.plyr--full-ui { position:absolute; top:50%; transform:translateY(-50%); width:100%; max-width:1400px; left:50%; transform:translate(-50%, -50%); }
+.plyr__caption { background:transparent; font-size:1.5em; text-shadow:1px 1px 2px black; }
+.close-btn {
+  position:fixed; top:10px; right:10px; width:40px; height:40px; border:none; border-radius:50%; background:transparent; color:#fff; font-size:20px; z-index:9999;
+}
+.close-btn:hover { background: rgba(255,255,255,0.08); }
+body.hide-ui .close-btn { opacity:0; pointer-events:none; }
